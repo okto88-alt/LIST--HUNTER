@@ -73,18 +73,36 @@ class HunterDashboard {
      * Load hunters data from JSON file
      */
     async loadHunters() {
-        try {
-            const response = await fetch('./data/hunters.json');
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            this.hunters = await response.json();
-            this.filteredHunters = [...this.hunters];
-        } catch (error) {
-            console.error('Error loading hunters data:', error);
-            throw error;
-        }
+    try {
+        const [okto, mio] = await Promise.all([
+            fetch('./data/hunters-okto88.json').then(r => {
+                if (!r.ok) throw new Error('Failed to load OKTO88 data');
+                return r.json();
+            }),
+            fetch('./data/hunters-mio88.json').then(r => {
+                if (!r.ok) throw new Error('Failed to load MIO88 data');
+                return r.json();
+            })
+        ]);
+
+        const oktoWithGroup = okto.map(h => ({
+            ...h,
+            group: 'OKTO88'
+        }));
+
+        const mioWithGroup = mio.map(h => ({
+            ...h,
+            group: 'MIO88'
+        }));
+
+        this.hunters = [...oktoWithGroup, ...mioWithGroup];
+        this.filteredHunters = [...this.hunters];
+
+    } catch (error) {
+        console.error('Error loading hunters data:', error);
+        throw error;
     }
+}
     
     /**
      * Setup event listeners
