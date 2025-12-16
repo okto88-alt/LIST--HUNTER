@@ -13,6 +13,76 @@
     "status": "Active",
     "join_date": "2025-06-25"
     },
+   {
+    "id": "H03",
+    "name": "Wawan Sani Rezky",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H04",
+    "name": "Rizky Wulan Dari",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H05",
+    "name": "Said Ali Yusman",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H06",
+    "name": "Said Zakaria",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H07",
+    "name": "Robbi Juanda Seabank",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H08",
+    "name": "Mita Wulandari",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H09",
+    "name": "Fitri Yani A",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H10",
+    "name": "Juwita Wulandari",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H11",
+    "name": "Sri Ratna Ningsih",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
+   {
+    "id": "H12",
+    "name": "Egi Ramadhan Putra",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+    },
   {
     "id": "H01",
     "name": "Reno ade putra",
@@ -26,5 +96,54 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-06-25"
-  }
+  },
+    {
+    "id": "H03",
+    "name": "Wawan Sani Rezky",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "H04",
+    "name": "Rizky Wulan Dari",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "H05",
+    "name": "Said Ali Yusman",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "H06",
+    "name": "Said Zakaria",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "H07",
+    "name": "Robbi Juanda Seabank",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "H08",
+    "name": "Mita Wulandari",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "H09",
+    "name": "Fitri Yani A",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
 ]
