@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUNTER Members Dashboard - Premium Team Directory</title>
+    
+    <!-- Premium Meta Tags -->
+    <meta name="description" content="Premium HUNTER Members Dashboard - View-only professional team directory with advanced search and filtering">
+    <meta name="author" content="MiniMax Agent">
+    <meta name="keywords" content="HUNTER, team, dashboard, members, directory">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="HUNTER Members Dashboard">
+    <meta property="og:description" content="Professional team member directory with premium design">
+    <meta property="og:type" content="website">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    
+    <!-- Premium Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">    
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
+    
+    <!-- Premium Theme Color -->
+    <meta name="theme-color" content="#6366f1">
+    <meta name="msapplication-TileColor" content="#1a1a24">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="title-section">
+                    <h1 class="dashboard-title">HUNTER Members</h1>
+                    <p class="dashboard-subtitle">Team Member Directory</p>
+                </div>
+                <div class="stats-section">
+                    <div class="stat-card">
+                        <div class="stat-number" id="total-count">0</div>
+                        <div class="stat-label">Total Members</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Controls -->
+        <section class="controls">
+            <div class="controls-left">
+                <div class="search-container">
+                    <input 
+                        type="text" 
+                        id="search-input" 
+                        class="search-input" 
+                        placeholder="Search by name or ID..."
+                        autocomplete="off"
+                    >
+                    <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                </div>
+                
+                <div class="filter-container">
+                    <select id="group-filter" class="filter-select">
+                        <option value="">All Groups</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="controls-right">
+                <!-- Sort Controls -->
+                <div class="sort-container">
+                    <button id="sort-name" class="sort-btn" data-sort="name">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 6h18M7 12h10M9 18h6"/>
+                        </svg>
+                        Sort by Name
+                    </button>
+                    <button id="sort-date" class="sort-btn" data-sort="date">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Sort by Date
+                    </button>
+                </div>
+                
+                <!-- View Toggle -->
+                <div class="view-toggle">
+                    <button id="bar-view" class="view-btn active" data-view="bar">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="8" y1="6" x2="21" y2="6"/>
+                            <line x1="8" y1="12" x2="21" y2="12"/>
+                            <line x1="8" y1="18" x2="21" y2="18"/>
+                            <line x1="3" y1="6" x2="3.01" y2="6"/>
+                            <line x1="3" y1="12" x2="3.01" y2="12"/>
+                            <line x1="3" y1="18" x2="3.01" y2="18"/>
+                        </svg>
+                        Bars
+                    </button>
+                    <button id="table-view" class="view-btn" data-view="table">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        Table
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Bar View -->
+            <div id="hunters-grid" class="hunters-grid">
+                <!-- Hunter bars will be dynamically inserted here -->
+            </div>
+            
+            <!-- Table View -->
+            <div id="hunters-table" class="hunters-table" style="display: none;">
+                <div class="table-container">
+                    <table class="hunter-table">
+                        <thead>
+                            <tr class="table-header">
+                                <th class="table-th sortable" data-sort="id">
+                                    <span class="th-content">
+                                        ID
+                                        <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 9l6 6 6-6"/>
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th class="table-th sortable" data-sort="name">
+                                    <span class="th-content">
+                                        Name
+                                        <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 9l6 6 6-6"/>
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th class="table-th sortable" data-sort="group">
+                                    <span class="th-content">
+                                        Category
+                                        <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 9l6 6 6-6"/>
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th class="table-th sortable" data-sort="status">
+                                    <span class="th-content">
+                                        Status
+                                        <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 9l6 6 6-6"/>
+                                        </svg>
+                                    </span>
+                                </th>
+                                <th class="table-th sortable" data-sort="join_date">
+                                    <span class="th-content">
+                                        Date
+                                        <svg class="sort-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                            <path d="M6 9l6 6 6-6"/>
+                                        </svg>
+                                    </span>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="hunters-tbody">
+                            <!-- Table rows will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <!-- No results message -->
+            <div id="no-results" class="no-results" style="display: none;">
+                <div class="no-results-content">
+                    <svg class="no-results-icon" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <path d="m21 21-4.35-4.35"></path>
+                    </svg>
+                    <h3>No members found</h3>
+                    <p>Try adjusting your search criteria or filters</p>
+                </div>
+            </div>
+        </main>
+
+        <!-- Loading indicator -->
+        <div id="loading" class="loading">
+            <div class="loading-spinner"></div>
+            <p>Loading members...</p>
+        </div>
+    </div>
+
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
