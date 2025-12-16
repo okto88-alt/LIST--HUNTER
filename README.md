@@ -297,7 +297,7 @@ The dashboard uses a CSS Grid layout. To change the card size or layout:
 
 ## License
 
-This dashboard is created by MiniMax Agent for HUNTER team management.
+This dashboard is created by Agent for HUNTER team management.
 
 ---
 
