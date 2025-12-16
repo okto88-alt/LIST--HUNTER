@@ -1,1 +1,65 @@
-
+[
+  {
+    "id": "M01",
+    "name": "Reno ade putra",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-01-10"
+    },
+  {
+    "id": "M02",
+    "name": "Deasy Fathira",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "M03",
+    "name": "Wawan Sani Rezky",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "M04",
+    "name": "Rizky Wulan Dari",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "M05",
+    "name": "Said Ali Yusman",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "M06",
+    "name": "Said Zakaria",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "M07",
+    "name": "Robbi Juanda Seabank",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "M08",
+    "name": "Mita Wulandari",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  },
+    {
+    "id": "M09",
+    "name": "Fitri Yani A",
+    "group": "MIO88",
+    "status": "Active",
+    "join_date": "2025-06-25"
+  }
+]
