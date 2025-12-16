@@ -1,210 +1,28 @@
 [
   {
     "id": "H001",
-    "name": "Andi Pratama",
+    "name": "Reno ade putra",
     "group": "OKTO88",
     "status": "Active",
     "join_date": "2025-01-10"
   },
   {
-    "id": "H002",
-    "name": "Sarah Chen",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-01-15"
-  },
-  {
-    "id": "H003",
-    "name": "Marcus Johnson",
+    "id": "H030",
+    "name": "Deasy Fathira",
     "group": "OKTO88",
     "status": "Active",
-    "join_date": "2025-02-03"
-  },
-  {
-    "id": "H004",
-    "name": "Elena Rodriguez",
+    "join_date": "2025-06-25"
+  }
+    {
+    "id": "H001",
+    "name": "Reno ade putra",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-02-12"
-  },
-  {
-    "id": "H005",
-    "name": "David Kim",
-    "group": "OKTO88",
-    "status": "Inactive",
-    "join_date": "2025-01-20"
-  },
-  {
-    "id": "H006",
-    "name": "Maria Santos",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-03-01"
-  },
-  {
-    "id": "H007",
-    "name": "James Wilson",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-02-28"
-  },
-  {
-    "id": "H008",
-    "name": "Yuki Tanaka",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-03-05"
-  },
-  {
-    "id": "H009",
-    "name": "Alex Morgan",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-03-10"
-  },
-  {
-    "id": "H010",
-    "name": "Priya Patel",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-03-15"
-  },
-  {
-    "id": "H011",
-    "name": "Michael Brown",
-    "group": "OKTO88",
-    "status": "Inactive",
-    "join_date": "2025-02-20"
-  },
-  {
-    "id": "H012",
-    "name": "Lisa Zhang",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-03-22"
-  },
-  {
-    "id": "H013",
-    "name": "Robert Garcia",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-04-01"
-  },
-  {
-    "id": "H014",
-    "name": "Anna Kowalski",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-04-05"
-  },
-  {
-    "id": "H015",
-    "name": "Carlos Silva",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-04-10"
-  },
-  {
-    "id": "H016",
-    "name": "Fatima Al-Rashid",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-04-15"
-  },
-  {
-    "id": "H017",
-    "name": "Thomas Müller",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-04-20"
-  },
-  {
-    "id": "H018",
-    "name": "Nina Petrov",
-    "group": "MIO88",
-    "status": "Inactive",
-    "join_date": "2025-03-28"
-  },
-  {
-    "id": "H019",
-    "name": "Akira Sato",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-05-01"
-  },
-  {
-    "id": "H020",
-    "name": "Emma Thompson",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-05-05"
-  },
-  {
-    "id": "H021",
-    "name": "Mohammed Hassan",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-05-10"
-  },
-  {
-    "id": "H022",
-    "name": "Sophie Dubois",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-05-15"
-  },
-  {
-    "id": "H023",
-    "name": "Ivan Volkov",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-05-20"
-  },
-  {
-    "id": "H024",
-    "name": "Isabella Rossi",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-05-25"
-  },
-  {
-    "id": "H025",
-    "name": "Daniel Andersson",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-06-01"
-  },
-  {
-    "id": "H026",
-    "name": "Maya Krishnan",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-06-05"
-  },
-  {
-    "id": "H027",
-    "name": "Lucas Silva",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-06-10"
-  },
-  {
-    "id": "H028",
-    "name": "Hannah Fischer",
-    "group": "MIO88",
-    "status": "Active",
-    "join_date": "2025-06-15"
-  },
-  {
-    "id": "H029",
-    "name": "Ahmed Ibrahim",
-    "group": "OKTO88",
-    "status": "Active",
-    "join_date": "2025-06-20"
+    "join_date": "2025-01-10"
   },
   {
     "id": "H030",
-    "name": "Olivia Chen",
+    "name": "Deasy Fathira",
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-06-25"
