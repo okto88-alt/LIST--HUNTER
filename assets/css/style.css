@@ -1339,31 +1339,29 @@ select:focus {
         background: white;
         border: 1px solid #ccc;
     }
-}/* ===== ROTATING LIGHT BORDER (LEGEND) ===== */
+/* ===== EDGE SCANNING LIGHT ===== */
 .legend-item {
   position: relative;
   overflow: hidden;
 }
 
-/* layer lampu muter */
 .legend-item::before {
   content: "";
   position: absolute;
-  inset: -2px;
-  border-radius: inherit;
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(255,255,255,0.6) 90deg,
-    transparent 180deg,
-    transparent 360deg
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255,255,255,0.6) 50%,
+    transparent 100%
   );
-  animation: rotateLight 4s linear infinite;
-  opacity: 0.6;
+  animation: edgeScan 3.5s linear infinite;
   pointer-events: none;
 }
 
-/* potong supaya hanya border */
 .legend-item::after {
   content: "";
   position: absolute;
@@ -1372,47 +1370,43 @@ select:focus {
   border-radius: inherit;
   z-index: 1;
 }
-
-/* isi tetap di atas */
 .legend-item > * {
   position: relative;
   z-index: 2;
 }
 
-@keyframes rotateLight {
+.legend-item.vip::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(168,85,247,0.9),
+    transparent
+  );
+}
+
+.legend-item.pro::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(56,189,248,0.9),
+    transparent
+  );
+}
+
+.legend-item.newbie::before {
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(74,222,128,0.9),
+    transparent
+  );
+}
+@keyframes edgeScan {
   from {
-    transform: rotate(0deg);
+    transform: translateX(-50%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translateX(50%);
   }
 }
-/* VIP — Purple Gold */
-.legend-item.vip::before {
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(168,85,247,0.9),
-    transparent 180deg
-  );
-}
 
-/* PRO — Electric Blue */
-.legend-item.pro::before {
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(56,189,248,0.9),
-    transparent 180deg
-  );
-}
-
-/* NEWBIE — Green Neon */
-.legend-item.newbie::before {
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    rgba(74,222,128,0.9),
-    transparent 180deg
-  );
-}
