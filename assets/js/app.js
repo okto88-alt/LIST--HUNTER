@@ -14,11 +14,7 @@ class HunterDashboard {
         this.currentSort = 'id';
         this.currentSortDirection = 'asc';
         this.currentView = 'bar';
-        this.levelIcons = {
-            VIP: "👑",
-            PRO: "⚡",
-            NEWBIE: "🌱"
-                 };
+        
         // DOM elements
         this.elements = {
             totalCount: document.getElementById('total-count'),
@@ -366,8 +362,8 @@ class HunterDashboard {
 const icon = this.levelIcons[hunter.level] || "";
 
 const levelBadge = hunter.level
-  ? `<span class="level-badge ${hunter.level.toLowerCase()}">${icon} ${hunter.level}</span>`
-  : "";
+  ? `<span class="level-badge ${hunter.level.toLowerCase()}">${hunter.level}</span>`
+  : '';
 
         const statusClass = hunter.status.toLowerCase() === 'active' ? 'status-active' : 'status-inactive';
         const formattedDate = this.formatDate(hunter.join_date);
