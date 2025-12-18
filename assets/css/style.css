@@ -1339,3 +1339,27 @@ select:focus {
         background: white;
         border: 1px solid #ccc;
     }
+/* =============== INTERACTIVITY FIX =============== */
+/* Make clickable elements visually clear */
+.name-value.clickable,
+.name-cell.clickable {
+    cursor: pointer;
+    transition: color var(--transition-fast), filter var(--transition-fast);
+}
+
+.name-value.clickable:hover,
+.name-cell.clickable:hover {
+    color: var(--accent-primary);
+    filter: brightness(1.1);
+}
+
+/* Optional: Add subtle underline on hover for extra clarity */
+.name-value.clickable:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+}
+
+/* Ensure modal elements are clickable */
+#member-modal .modal-close {
+    cursor: pointer;
+}
