@@ -181,6 +181,14 @@ body::before {
     margin-bottom: var(--spacing-sm);
     letter-spacing: -0.02em;
 }
+/* ===== TITLE SECTION LAYOUT (FIX DESKTOP) ===== */
+.title-section {
+  display: flex;
+  flex-direction: column;      /* ⬅️ kunci vertikal */
+  align-items: flex-start;     /* ⬅️ sejajar kiri */
+  gap: 14px;                   /* ⬅️ jarak judul ↔ legend */
+  max-width: 520px;            /* ⬅️ kunci lebar kiri */
+}
 
 .dashboard-subtitle {
     font-size: var(--font-size-lg);
