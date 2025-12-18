@@ -188,6 +188,34 @@ body::before {
     font-weight: var(--font-weight-medium);
     opacity: 0.8;
 }
+/* ===== LEVEL LEGEND (HEADER) ===== */
+.level-legend {
+  display: flex;
+  gap: 18px;
+  margin-top: 6px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #aab0c4;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+}
+
+.legend-item b {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* subtle color hint per level */
+.legend-item.vip { border: 1px solid rgba(168,85,247,0.4); }
+.legend-item.pro { border: 1px solid rgba(56,189,248,0.4); }
+.legend-item.newbie { border: 1px solid rgba(74,222,128,0.4); }
 
 /* Premium Stats Section */
 .stats-section {
