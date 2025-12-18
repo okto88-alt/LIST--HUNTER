@@ -56,21 +56,6 @@ class HunterDashboard {
             this.updateTotalCount();
             this.hideLoading();
 
-            // ✅ PASANG EVENT DELEGATION SETELAH SEMUA SIAP
-            if (this.elements.huntersGrid) {
-                this.elements.huntersGrid.addEventListener('click', (e) => {
-                    const nameValue = e.target.closest('.name-value');
-                    if (nameValue) {
-                        const bar = nameValue.closest('.hunter-bar');
-                        const hunterId = bar?.dataset.hunterId;
-                        const hunter = this.hunters.find(h => h.id === hunterId);
-                        if (hunter) {
-                            this.openMemberModal(hunter);
-                        }
-                    }
-                });
-            }
-
         } catch (error) {
             console.error('Failed to initialize dashboard:', error);
             this.showError('Failed to load hunter data. Please check the data file.');
@@ -585,6 +570,21 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 250);
     });
+
+    // ✅ PASANG EVENT DELEGATION SETELAH DOM SIAP
+    if (window.hunterDashboard && window.hunterDashboard.elements.huntersGrid) {
+        window.hunterDashboard.elements.huntersGrid.addEventListener('click', (e) => {
+            const nameValue = e.target.closest('.name-value');
+            if (nameValue) {
+                const bar = nameValue.closest('.hunter-bar');
+                const hunterId = bar?.dataset.hunterId;
+                const hunter = window.hunterDashboard.hunters.find(h => h.id === hunterId);
+                if (hunter) {
+                    window.hunterDashboard.openMemberModal(hunter);
+                }
+            }
+        });
+    }
 });
 
 // Global error handling
