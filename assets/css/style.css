@@ -1342,28 +1342,6 @@ select:focus {
 /* ===== EDGE SCANNING LIGHT ===== */
 .legend-item {
   position: relative;
-  overflow: hidden;
-}
-
-.legend-item::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -100%;
-  width: 200%;
-  height: 100%;
-   z-index: 0; /* 🔥 KUNCI */
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(255,255,255,0.6) 50%,
-    transparent 100%
-  );
-   animation: edgeScan 2.2s linear infinite;
-  pointer-events: none;
-}
-.legend-item {
-  position: relative;
   border-radius: 12px;
   overflow: hidden;
 }
