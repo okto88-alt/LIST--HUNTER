@@ -359,8 +359,6 @@ class HunterDashboard {
         bar.style.opacity = '0';
         bar.style.transform = 'translateX(-20px)';
 
-const icon = this.levelIcons[hunter.level] || "";
-
 const levelBadge = hunter.level
   ? `<span class="level-badge ${hunter.level.toLowerCase()}">${hunter.level}</span>`
   : '';
