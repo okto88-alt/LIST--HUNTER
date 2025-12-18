@@ -149,7 +149,7 @@ body::before {
 .header-content {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start; /* ✅ FIX UTAMA */
     padding: var(--spacing-2xl) 0;
     background: var(--glass-bg);
     backdrop-filter: var(--glass-backdrop);
