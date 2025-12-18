@@ -1362,27 +1362,38 @@ select:focus {
    animation: edgeScan 2.2s linear infinite;
   pointer-events: none;
 }
-
-.legend-item::after {
+.legend-item {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.legend-item::before {
   content: "";
   position: absolute;
-  inset: 1.5px;
-  background: rgba(20,22,35,0.75); /* ⬅️ lebih transparan */
+  inset: 0;
+  padding: 2px;                 /* ketebalan border */
   border-radius: inherit;
-  z-index: 1;
-  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255,255,255,0.9),
+    transparent
+  );
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: edgeScan 2s linear infinite;
 }
-   
-.legend-item > * {
-  position: relative;
-  z-index: 2;
-}
-
 .legend-item.vip::before {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(168,85,247,0.9),
+    rgba(168,85,247,1),
     transparent
   );
 }
@@ -1391,7 +1402,7 @@ select:focus {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(56,189,248,0.9),
+    rgba(56,189,248,1),
     transparent
   );
 }
@@ -1400,15 +1411,11 @@ select:focus {
   background: linear-gradient(
     90deg,
     transparent,
-    rgba(74,222,128,0.9),
+    rgba(74,222,128,1),
     transparent
   );
 }
 @keyframes edgeScan {
-  from {
-    transform: translateX(-120%);
-  }
-  to {
-    transform: translateX(120%);
-  }
+  from { background-position: -200% 0; }
+  to   { background-position: 200% 0; }
 }
