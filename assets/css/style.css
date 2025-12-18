@@ -1352,6 +1352,7 @@ select:focus {
   left: -100%;
   width: 200%;
   height: 100%;
+   z-index: 0; /* 🔥 KUNCI */
   background: linear-gradient(
     90deg,
     transparent 0%,
