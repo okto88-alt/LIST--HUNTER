@@ -1339,4 +1339,80 @@ select:focus {
         background: white;
         border: 1px solid #ccc;
     }
+}/* ===== ROTATING LIGHT BORDER (LEGEND) ===== */
+.legend-item {
+  position: relative;
+  overflow: hidden;
+}
+
+/* layer lampu muter */
+.legend-item::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(255,255,255,0.6) 90deg,
+    transparent 180deg,
+    transparent 360deg
+  );
+  animation: rotateLight 4s linear infinite;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* potong supaya hanya border */
+.legend-item::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: inherit;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+/* isi tetap di atas */
+.legend-item > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes rotateLight {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+/* VIP — Purple Gold */
+.legend-item.vip::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(168,85,247,0.9),
+    transparent 180deg
+  );
+}
+
+/* PRO — Electric Blue */
+.legend-item.pro::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(56,189,248,0.9),
+    transparent 180deg
+  );
+}
+
+/* NEWBIE — Green Neon */
+.legend-item.newbie::before {
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    rgba(74,222,128,0.9),
+    transparent 180deg
+  );
 }
