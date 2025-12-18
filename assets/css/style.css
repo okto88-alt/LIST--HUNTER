@@ -1096,6 +1096,58 @@ body::before {
 .hunter-bar:nth-child(5) { animation-delay: 200ms; }
 .hunter-bar:nth-child(n+6) { animation-delay: 250ms; }
 
+/* BASE (opsional, kalau belum ada) */
+.level-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* VIP — Floating Crown */
+.level-badge.vip::before {
+  content: "👑";
+  animation: crownFloat 2.5s ease-in-out infinite;
+  display: inline-block;
+}
+
+@keyframes crownFloat {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); }
+}
+
+/* PRO — Electric Pulse */
+.level-badge.pro::before {
+  content: "⚡";
+  animation: pulseFlash 1.6s infinite;
+}
+
+@keyframes pulseFlash {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+/* NEWBIE — Grow Pop */
+.level-badge.newbie::before {
+  content: "🌱";
+  animation: growPop 2s ease-in-out infinite;
+}
+
+@keyframes growPop {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+/* OPTIONAL: gerak hanya saat hover (PRO) */
+.level-badge::before {
+  animation-play-state: paused;
+}
+
+.level-badge:hover::before {
+  animation-play-state: running;
+}
+
 /* Premium Responsive Design */
 @media (max-width: 1024px) {
     .hunters-grid {
