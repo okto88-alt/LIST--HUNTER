@@ -387,33 +387,6 @@ const levelBadge = hunter.level
             </div>
           </div>
 
-            openMemberModal(hunter) {
-    const ids = this.registrations?.[hunter.id] || [];
-
-    let modal = document.getElementById('member-modal');
-    if (!modal) {
-        modal = document.createElement('div');
-        modal.id = 'member-modal';
-        modal.className = 'modal-overlay';
-        document.body.appendChild(modal);
-    }
-
-    modal.innerHTML = `
-        <div class="modal">
-            <h2>${hunter.name} (${hunter.level})</h2>
-            <p>Total ID: <b>${ids.length}</b></p>
-            <ul class="id-list">
-                ${ids.map(id => `<li>${id}</li>`).join('')}
-            </ul>
-            <button class="modal-close">Close</button>
-        </div>
-    `;
-
-    modal.querySelector('.modal-close').onclick = () => {
-        modal.remove();
-    };
-}
-
             <!-- Category Section -->
             <div class="hunter-section category-section">
                 <div class="section-label">Category</div>
