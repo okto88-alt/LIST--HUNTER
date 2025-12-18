@@ -1366,7 +1366,7 @@ select:focus {
   content: "";
   position: absolute;
   inset: 2px;
-  background: inherit;
+background: rgba(20,22,35,0.92);
   border-radius: inherit;
   z-index: 1;
 }
