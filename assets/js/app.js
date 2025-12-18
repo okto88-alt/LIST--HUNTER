@@ -9,6 +9,7 @@ class HunterDashboard {
     constructor() {
         this.hunters = [];
         this.filteredHunters = [];
+        this.registrations = {}; // ⬅️ TAMBAH INI
         this.currentGroupFilter = '';
         this.currentSearch = '';
         this.currentSort = 'id';
@@ -97,6 +98,10 @@ class HunterDashboard {
 
         this.hunters = [...oktoWithGroup, ...mioWithGroup];
         this.filteredHunters = [...this.hunters];
+        const regRes = await fetch('./data/registrations-mio88.json');
+        if (regRes.ok) {
+        this.registrations = await regRes.json();
+}
 
     } catch (error) {
         console.error('Error loading hunters data:', error);
@@ -377,12 +382,38 @@ const levelBadge = hunter.level
             <!-- Name Section -->
             <div class="hunter-section name-section">
                 <div class="section-label">Name</div>
-            <div class="name-value">
-              ${this.escapeHtml(hunter.name)}
-              ${levelBadge}
+            <div class="name-value clickable">
+              ${hunter.name} ${levelBadge}
             </div>
-            </div>
-            
+          </div>
+
+            openMemberModal(hunter) {
+    const ids = this.registrations?.[hunter.id] || [];
+
+    let modal = document.getElementById('member-modal');
+    if (!modal) {
+        modal = document.createElement('div');
+        modal.id = 'member-modal';
+        modal.className = 'modal-overlay';
+        document.body.appendChild(modal);
+    }
+
+    modal.innerHTML = `
+        <div class="modal">
+            <h2>${hunter.name} (${hunter.level})</h2>
+            <p>Total ID: <b>${ids.length}</b></p>
+            <ul class="id-list">
+                ${ids.map(id => `<li>${id}</li>`).join('')}
+            </ul>
+            <button class="modal-close">Close</button>
+        </div>
+    `;
+
+    modal.querySelector('.modal-close').onclick = () => {
+        modal.remove();
+    };
+}
+
             <!-- Category Section -->
             <div class="hunter-section category-section">
                 <div class="section-label">Category</div>
