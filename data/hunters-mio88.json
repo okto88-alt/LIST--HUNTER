@@ -5,6 +5,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-01-10"
+    "level": "VIP"
     },
   {
     "id": "M02",
@@ -12,6 +13,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-06-25"
+    "level": "VIP"
   },
     {
     "id": "M03",
@@ -19,6 +21,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-06-25"
+      "level": "PRO"
   },
     {
     "id": "M04",
@@ -26,6 +29,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-06-25"
+      "level": "NEWBIE"
   },
     {
     "id": "M05",
@@ -33,6 +37,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-06-25"
+      "level": "PRO"
   },
     {
     "id": "M06",
@@ -40,6 +45,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-06-25"
+      "level": "VIP"
   },
     {
     "id": "M07",
@@ -47,6 +53,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-12-17"
+      "level": "VIP"
   },
     {
     "id": "M08",
@@ -54,6 +61,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-12-17"
+      "level": "VIP"
   },
     {
     "id": "M09",
@@ -61,6 +69,7 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-12-17"
+      "level": "NEWBIE"
   },
     {
     "id": "M10",
@@ -68,5 +77,6 @@
     "group": "MIO88",
     "status": "Active",
     "join_date": "2025-12-17"
+      "level": "NEWBIE"
   }
 ]
