@@ -1359,18 +1359,20 @@ select:focus {
     rgba(255,255,255,0.6) 50%,
     transparent 100%
   );
-  animation: edgeScan 3.5s linear infinite;
+   animation: edgeScan 2.2s linear infinite;
   pointer-events: none;
 }
 
 .legend-item::after {
   content: "";
   position: absolute;
-  inset: 2px;
-background: rgba(20,22,35,0.92);
+  inset: 1.5px;
+  background: rgba(20,22,35,0.75); /* ⬅️ lebih transparan */
   border-radius: inherit;
   z-index: 1;
+  pointer-events: none;
 }
+   
 .legend-item > * {
   position: relative;
   z-index: 2;
@@ -1404,10 +1406,9 @@ background: rgba(20,22,35,0.92);
 }
 @keyframes edgeScan {
   from {
-    transform: translateX(-50%);
+    transform: translateX(-120%);
   }
   to {
-    transform: translateX(50%);
+    transform: translateX(120%);
   }
 }
-
