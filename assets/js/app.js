@@ -55,6 +55,22 @@ class HunterDashboard {
             this.filterAndRender();
             this.updateTotalCount();
             this.hideLoading();
+
+            // ✅ PASANG EVENT DELEGATION SETELAH SEMUA SIAP
+            if (this.elements.huntersGrid) {
+                this.elements.huntersGrid.addEventListener('click', (e) => {
+                    const nameValue = e.target.closest('.name-value');
+                    if (nameValue) {
+                        const bar = nameValue.closest('.hunter-bar');
+                        const hunterId = bar?.dataset.hunterId;
+                        const hunter = this.hunters.find(h => h.id === hunterId);
+                        if (hunter) {
+                            this.openMemberModal(hunter);
+                        }
+                    }
+                });
+            }
+
         } catch (error) {
             console.error('Failed to initialize dashboard:', error);
             this.showError('Failed to load hunter data. Please check the data file.');
@@ -89,7 +105,7 @@ class HunterDashboard {
                 this.registrations = await regRes.json();
             }
         } catch (error) {
-            console.error('Error loading hunters data:', error);
+            console.error('Error loading hunters ', error);
             throw error;
         }
     }
@@ -128,19 +144,6 @@ class HunterDashboard {
                     this.toggleSort(sortField);
                 }
             });
-        });
-
-        // ✅ EVENT DELEGATION UNTUK MODAL (Bar View)
-        this.elements.huntersGrid.addEventListener('click', (e) => {
-            const nameValue = e.target.closest('.name-value');
-            if (nameValue) {
-                const bar = nameValue.closest('.hunter-bar');
-                const hunterId = bar?.dataset.hunterId;
-                const hunter = this.hunters.find(h => h.id === hunterId);
-                if (hunter) {
-                    this.openMemberModal(hunter);
-                }
-            }
         });
     }
     
