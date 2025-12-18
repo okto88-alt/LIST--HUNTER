@@ -1,7 +1,7 @@
 /**
  * HUNTER Members Dashboard - Premium JavaScript
  * View-only dashboard for displaying team members
- * Advanced search, filtering, and premium animations
+ * Advanced search, filtering, premium animations, and member ID modal
  * Author: MiniMax Agent
  */
 
@@ -9,7 +9,7 @@ class HunterDashboard {
     constructor() {
         this.hunters = [];
         this.filteredHunters = [];
-        this.registrations = {}; // ⬅️ TAMBAH INI
+        this.registrations = {}; // Store registration data
         this.currentGroupFilter = '';
         this.currentSearch = '';
         this.currentSort = 'id';
@@ -50,8 +50,8 @@ class HunterDashboard {
             await this.loadHunters();
             this.setupEventListeners();
             this.populateGroupFilter();
-            this.setView('bar'); // Set default view
-            this.updateSortButtonStates(); // Initialize sort buttons
+            this.setView('bar');
+            this.updateSortButtonStates();
             this.filterAndRender();
             this.updateTotalCount();
             this.hideLoading();
@@ -62,52 +62,37 @@ class HunterDashboard {
     }
     
     /**
-     * Update sort button visual states
-     */
-    updateSortButtonStates() {
-        this.elements.sortName.classList.toggle('active', this.currentSort === 'name');
-        this.elements.sortDate.classList.toggle('active', this.currentSort === 'date');
-        this.updateTableHeaderStates();
-    }
-    
-    /**
-     * Load hunters data from JSON file
+     * Load hunters and registration data
      */
     async loadHunters() {
-    try {
-        const [okto, mio] = await Promise.all([
-            fetch('./data/hunters-okto88.json').then(r => {
-                if (!r.ok) throw new Error('Failed to load OKTO88 data');
-                return r.json();
-            }),
-            fetch('./data/hunters-mio88.json').then(r => {
-                if (!r.ok) throw new Error('Failed to load MIO88 data');
-                return r.json();
-            })
-        ]);
+        try {
+            const [okto, mio] = await Promise.all([
+                fetch('./data/hunters-okto88.json').then(r => {
+                    if (!r.ok) throw new Error('Failed to load OKTO88 data');
+                    return r.json();
+                }),
+                fetch('./data/hunters-mio88.json').then(r => {
+                    if (!r.ok) throw new Error('Failed to load MIO88 data');
+                    return r.json();
+                })
+            ]);
 
-        const oktoWithGroup = okto.map(h => ({
-            ...h,
-            group: 'OKTO88'
-        }));
+            const oktoWithGroup = okto.map(h => ({ ...h, group: 'OKTO88' }));
+            const mioWithGroup = mio.map(h => ({ ...h, group: 'MIO88' }));
 
-        const mioWithGroup = mio.map(h => ({
-            ...h,
-            group: 'MIO88'
-        }));
+            this.hunters = [...oktoWithGroup, ...mioWithGroup];
+            this.filteredHunters = [...this.hunters];
 
-        this.hunters = [...oktoWithGroup, ...mioWithGroup];
-        this.filteredHunters = [...this.hunters];
-        const regRes = await fetch('./data/registrations-mio88.json');
-        if (regRes.ok) {
-        this.registrations = await regRes.json();
-}
-
-    } catch (error) {
-        console.error('Error loading hunters data:', error);
-        throw error;
+            // Load registrations
+            const regRes = await fetch('./data/registrations-mio88.json');
+            if (regRes.ok) {
+                this.registrations = await regRes.json();
+            }
+        } catch (error) {
+            console.error('Error loading hunters data:', error);
+            throw error;
+        }
     }
-}
     
     /**
      * Setup event listeners
@@ -128,22 +113,12 @@ class HunterDashboard {
         });
         
         // View toggle
-        this.elements.barView.addEventListener('click', () => {
-            this.setView('bar');
-        });
-        
-        this.elements.tableView.addEventListener('click', () => {
-            this.setView('table');
-        });
+        this.elements.barView.addEventListener('click', () => this.setView('bar'));
+        this.elements.tableView.addEventListener('click', () => this.setView('table'));
         
         // Sort buttons
-        this.elements.sortName.addEventListener('click', () => {
-            this.toggleSort('name');
-        });
-        
-        this.elements.sortDate.addEventListener('click', () => {
-            this.toggleSort('date');
-        });
+        this.elements.sortName.addEventListener('click', () => this.toggleSort('name'));
+        this.elements.sortDate.addEventListener('click', () => this.toggleSort('date'));
         
         // Table header sorting
         this.elements.tableHeaders.forEach(header => {
@@ -165,7 +140,6 @@ class HunterDashboard {
             .filter(group => group);
             
         this.elements.groupFilter.innerHTML = '<option value="">All Groups</option>';
-        
         groups.forEach(group => {
             const option = document.createElement('option');
             option.value = group;
@@ -175,7 +149,7 @@ class HunterDashboard {
     }
     
     /**
-     * Filter and render hunters based on current search and group filter
+     * Filter and render hunters
      */
     filterAndRender() {
         this.filteredHunters = this.hunters.filter(hunter => {
@@ -198,16 +172,10 @@ class HunterDashboard {
      */
     setView(view) {
         this.currentView = view;
-        
-        // Update button states
         this.elements.barView.classList.toggle('active', view === 'bar');
         this.elements.tableView.classList.toggle('active', view === 'table');
-        
-        // Show/hide views
         this.elements.huntersGrid.style.display = view === 'bar' ? 'flex' : 'none';
         this.elements.huntersTable.style.display = view === 'table' ? 'block' : 'none';
-        
-        // Re-render with current view
         this.renderHunters();
     }
     
@@ -216,34 +184,29 @@ class HunterDashboard {
      */
     toggleSort(field) {
         if (this.currentSort === field) {
-            // Toggle direction
             this.currentSortDirection = this.currentSortDirection === 'asc' ? 'desc' : 'asc';
         } else {
-            // New sort field
             this.currentSort = field;
             this.currentSortDirection = 'asc';
         }
-        
-        // Update sort button states
-        this.elements.sortName.classList.toggle('active', this.currentSort === 'name');
-        this.elements.sortDate.classList.toggle('active', this.currentSort === 'date');
-        
-        // Update table header states
-        this.updateTableHeaderStates();
-        
-        // Re-sort and re-render
+        this.updateSortButtonStates();
         this.sortHunters();
         this.renderHunters();
     }
     
     /**
-     * Update table header visual states
+     * Update sort button and table header states
      */
+    updateSortButtonStates() {
+        this.elements.sortName.classList.toggle('active', this.currentSort === 'name');
+        this.elements.sortDate.classList.toggle('active', this.currentSort === 'date');
+        this.updateTableHeaderStates();
+    }
+    
     updateTableHeaderStates() {
         this.elements.tableHeaders.forEach(header => {
             const sortField = header.dataset.sort;
             header.classList.remove('sorted', 'asc', 'desc');
-            
             if (sortField === this.currentSort) {
                 header.classList.add('sorted', this.currentSortDirection);
             }
@@ -251,7 +214,7 @@ class HunterDashboard {
     }
     
     /**
-     * Sort hunters based on current sort settings
+     * Sort hunters
      */
     sortHunters() {
         this.filteredHunters.sort((a, b) => {
@@ -273,27 +236,21 @@ class HunterDashboard {
                     break;
             }
             
-            if (valueA < valueB) {
-                return this.currentSortDirection === 'asc' ? -1 : 1;
-            }
-            if (valueA > valueB) {
-                return this.currentSortDirection === 'asc' ? 1 : -1;
-            }
+            if (valueA < valueB) return this.currentSortDirection === 'asc' ? -1 : 1;
+            if (valueA > valueB) return this.currentSortDirection === 'asc' ? 1 : -1;
             return 0;
         });
     }
     
     /**
-     * Render hunters to the current view
+     * Render hunters based on current view
      */
     renderHunters() {
         if (this.filteredHunters.length === 0) {
             this.showNoResults();
             return;
         }
-        
         this.hideNoResults();
-        
         if (this.currentView === 'bar') {
             this.renderBarView();
         } else {
@@ -302,12 +259,11 @@ class HunterDashboard {
     }
     
     /**
-     * Render hunters in bar view (horizontal list)
+     * Render bar view
      */
     renderBarView() {
         const grid = this.elements.huntersGrid;
         grid.innerHTML = '';
-        
         this.filteredHunters.forEach(hunter => {
             const bar = this.createHunterBar(hunter);
             grid.appendChild(bar);
@@ -315,12 +271,11 @@ class HunterDashboard {
     }
     
     /**
-     * Render hunters in table view
+     * Render table view
      */
     renderTableView() {
         const tbody = this.elements.huntersTbody;
         tbody.innerHTML = '';
-        
         this.filteredHunters.forEach(hunter => {
             const row = this.createHunterTableRow(hunter);
             tbody.appendChild(row);
@@ -328,12 +283,11 @@ class HunterDashboard {
     }
     
     /**
-     * Create a hunter table row element
+     * Create table row
      */
     createHunterTableRow(hunter) {
         const row = document.createElement('tr');
         row.className = `table-row ${hunter.status.toLowerCase() === 'inactive' ? 'inactive' : ''}`;
-        
         const formattedDate = this.formatDate(hunter.join_date);
         const statusClass = hunter.status.toLowerCase() === 'active' ? 'status-active' : 'status-inactive';
         
@@ -351,12 +305,11 @@ class HunterDashboard {
             </td>
             <td class="table-td date-cell">${formattedDate}</td>
         `;
-        
         return row;
     }
     
     /**
-     * Create a hunter bar element with premium animations
+     * Create hunter bar with click-to-open modal
      */
     createHunterBar(hunter) {
         const bar = document.createElement('div');
@@ -364,38 +317,31 @@ class HunterDashboard {
         bar.style.opacity = '0';
         bar.style.transform = 'translateX(-20px)';
 
-const levelBadge = hunter.level
-  ? `<span class="level-badge ${hunter.level.toLowerCase()}">${hunter.level}</span>`
-  : '';
+        const levelBadge = hunter.level
+            ? `<span class="level-badge ${hunter.level.toLowerCase()}">${this.escapeHtml(hunter.level)}</span>`
+            : '';
 
         const statusClass = hunter.status.toLowerCase() === 'active' ? 'status-active' : 'status-inactive';
         const formattedDate = this.formatDate(hunter.join_date);
         const memberSince = this.getMemberSince(hunter.join_date);
         
         bar.innerHTML = `
-            <!-- ID Section -->
             <div class="hunter-section id-section">
                 <div class="section-label">ID</div>
                 <div class="id-value">${this.escapeHtml(hunter.id)}</div>
             </div>
-            
-            <!-- Name Section -->
             <div class="hunter-section name-section">
                 <div class="section-label">Name</div>
-            <div class="name-value clickable">
-              ${hunter.name} ${levelBadge}
+                <div class="name-value clickable">
+                    ${this.escapeHtml(hunter.name)} ${levelBadge}
+                </div>
             </div>
-          </div>
-
-            <!-- Category Section -->
             <div class="hunter-section category-section">
                 <div class="section-label">Category</div>
                 <div class="category-value">
                     <span class="group-tag">${this.escapeHtml(hunter.group)}</span>
                 </div>
             </div>
-            
-            <!-- Status Section -->
             <div class="hunter-section status-section">
                 <div class="section-label">Status</div>
                 <div class="status-value">
@@ -405,16 +351,22 @@ const levelBadge = hunter.level
                     </span>
                 </div>
             </div>
-            
-            <!-- Date Section -->
             <div class="hunter-section date-section">
                 <div class="section-label">Date</div>
                 <div class="date-value">${formattedDate}</div>
                 <div class="member-since-value">${memberSince}</div>
             </div>
         `;
-        
-        // Animate bar entrance
+
+        // Add click listener to open modal
+        const nameEl = bar.querySelector('.name-value');
+        if (nameEl) {
+            nameEl.addEventListener('click', () => {
+                this.openMemberModal(hunter);
+            });
+        }
+
+        // Animate entrance
         requestAnimationFrame(() => {
             setTimeout(() => {
                 bar.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
@@ -422,43 +374,70 @@ const levelBadge = hunter.level
                 bar.style.transform = 'translateX(0)';
             }, Math.random() * 150);
         });
-        
+
         return bar;
+    }
+
+    /**
+     * Open modal to show registered IDs for a hunter
+     */
+    openMemberModal(hunter) {
+        const ids = this.registrations?.[hunter.id] || [];
+        const displayedLevel = hunter.level || 'N/A';
+
+        let modal = document.getElementById('member-modal');
+        if (!modal) {
+            modal = document.createElement('div');
+            modal.id = 'member-modal';
+            modal.className = 'modal-overlay';
+            document.body.appendChild(modal);
+        }
+
+        modal.innerHTML = `
+            <div class="modal">
+                <h2>${this.escapeHtml(hunter.name)} (${this.escapeHtml(displayedLevel)})</h2>
+                <p>Total ID: <b>${ids.length}</b></p>
+                <ul class="id-list">
+                    ${ids.map(id => `<li>${this.escapeHtml(id)}</li>`).join('')}
+                </ul>
+                <button class="modal-close">Close</button>
+            </div>
+        `;
+
+        const closeButton = modal.querySelector('.modal-close');
+        if (closeButton) {
+            closeButton.onclick = () => modal.remove();
+        }
+
+        // Close modal when clicking outside content
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.remove();
+            }
+        });
     }
     
     /**
-     * Update total count display
+     * Update total count
      */
     updateTotalCount() {
         this.elements.totalCount.textContent = this.hunters.length;
     }
     
-    /**
-     * Show no results message
-     */
     showNoResults() {
         this.elements.huntersGrid.style.display = 'none';
         this.elements.noResults.style.display = 'flex';
     }
     
-    /**
-     * Hide no results message
-     */
     hideNoResults() {
-        this.elements.huntersGrid.style.display = 'grid';
+        this.elements.huntersGrid.style.display = 'flex';
         this.elements.noResults.style.display = 'none';
     }
     
-    /**
-     * Hide loading indicator
-     */
     hideLoading() {
         this.elements.loading.style.display = 'none';
     }
     
-    /**
-     * Show error message
-     */
     showError(message) {
         this.hideLoading();
         this.elements.huntersGrid.innerHTML = `
@@ -477,16 +456,11 @@ const levelBadge = hunter.level
         `;
     }
     
-    /**
-     * Format date for display
-     */
     formatDate(dateString) {
         if (!dateString) return 'N/A';
-        
         try {
             const date = new Date(dateString);
             if (isNaN(date.getTime())) return dateString;
-            
             return date.toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'short',
@@ -497,12 +471,8 @@ const levelBadge = hunter.level
         }
     }
     
-    /**
-     * Calculate member since text
-     */
     getMemberSince(dateString) {
         if (!dateString) return '';
-        
         try {
             const joinDate = new Date(dateString);
             const now = new Date();
@@ -523,33 +493,24 @@ const levelBadge = hunter.level
         }
     }
     
-    /**
-     * Escape HTML to prevent XSS
-     */
     escapeHtml(text) {
         const div = document.createElement('div');
-        div.textContent = text;
+        div.textContent = String(text);
         return div.innerHTML;
     }
     
-    /**
-     * Debounce function to limit API calls
-     */
     debounce(func, wait) {
         let timeout;
         return function executedFunction(...args) {
             const later = () => {
                 clearTimeout(timeout);
-                func(...args);
+                func.apply(this, args);
             };
             clearTimeout(timeout);
             timeout = setTimeout(later, wait);
         };
     }
     
-    /**
-     * Get statistics about hunters
-     */
     getStatistics() {
         const stats = {
             total: this.hunters.length,
@@ -557,13 +518,9 @@ const levelBadge = hunter.level
             inactive: this.hunters.filter(h => h.status.toLowerCase() !== 'active').length,
             groups: [...new Set(this.hunters.map(h => h.group))].length
         };
-        
         return stats;
     }
     
-    /**
-     * Export filtered data (for potential future use)
-     */
     exportFilteredData() {
         const data = {
             hunters: this.filteredHunters,
@@ -574,52 +531,42 @@ const levelBadge = hunter.level
             statistics: this.getStatistics(),
             exportDate: new Date().toISOString()
         };
-        
         return data;
     }
 }
 
-// Initialize dashboard when DOM is loaded
+// Initialize dashboard
 document.addEventListener('DOMContentLoaded', () => {
-    // Create global dashboard instance
     window.hunterDashboard = new HunterDashboard();
     
-    // Add keyboard shortcuts
+    // Keyboard shortcuts
     document.addEventListener('keydown', (e) => {
-        // Focus search with Ctrl+F or Cmd+F
         if ((e.ctrlKey || e.metaKey) && e.key === 'f') {
             e.preventDefault();
-            document.getElementById('search-input').focus();
+            document.getElementById('search-input')?.focus();
         }
-        
-        // Switch to bar view with Ctrl+1
         if ((e.ctrlKey || e.metaKey) && e.key === '1') {
             e.preventDefault();
-            window.hunterDashboard.setView('bar');
+            window.hunterDashboard?.setView('bar');
         }
-        
-        // Switch to table view with Ctrl+2
         if ((e.ctrlKey || e.metaKey) && e.key === '2') {
             e.preventDefault();
-            window.hunterDashboard.setView('table');
+            window.hunterDashboard?.setView('table');
         }
-        
-        // Clear search with Escape
         if (e.key === 'Escape') {
             const searchInput = document.getElementById('search-input');
-            if (document.activeElement === searchInput) {
+            if (searchInput && document.activeElement === searchInput) {
                 searchInput.value = '';
                 searchInput.dispatchEvent(new Event('input'));
             }
         }
     });
     
-    // Add window resize handler for responsive adjustments
+    // Responsive resize
     let resizeTimeout;
     window.addEventListener('resize', () => {
         clearTimeout(resizeTimeout);
         resizeTimeout = setTimeout(() => {
-            // Trigger any responsive layout updates if needed
             if (window.hunterDashboard) {
                 window.hunterDashboard.renderHunters();
             }
@@ -627,12 +574,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Error handling for uncaught errors
-window.addEventListener('error', (e) => {
-    console.error('Uncaught error:', e.error);
-});
-
-// Handle unhandled promise rejections
-window.addEventListener('unhandledrejection', (e) => {
-    console.error('Unhandled promise rejection:', e.reason);
-});
+// Global error handling
+window.addEventListener('error', (e) => console.error('Uncaught error:', e.error));
+window.addEventListener('unhandledrejection', (e) => console.error('Unhandled promise rejection:', e.reason));
