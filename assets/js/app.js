@@ -129,6 +129,19 @@ class HunterDashboard {
                 }
             });
         });
+
+        // ✅ EVENT DELEGATION UNTUK MODAL (Bar View)
+        this.elements.huntersGrid.addEventListener('click', (e) => {
+            const nameValue = e.target.closest('.name-value');
+            if (nameValue) {
+                const bar = nameValue.closest('.hunter-bar');
+                const hunterId = bar?.dataset.hunterId;
+                const hunter = this.hunters.find(h => h.id === hunterId);
+                if (hunter) {
+                    this.openMemberModal(hunter);
+                }
+            }
+        });
     }
     
     /**
@@ -316,6 +329,9 @@ class HunterDashboard {
         bar.className = `hunter-bar ${hunter.status.toLowerCase() === 'inactive' ? 'inactive' : ''}`;
         bar.style.opacity = '0';
         bar.style.transform = 'translateX(-20px)';
+        
+        // ✅ Tambahkan dataset untuk identifikasi
+        bar.dataset.hunterId = hunter.id;
 
         const levelBadge = hunter.level
             ? `<span class="level-badge ${hunter.level.toLowerCase()}">${this.escapeHtml(hunter.level)}</span>`
@@ -358,13 +374,7 @@ class HunterDashboard {
             </div>
         `;
 
-        // Add click listener to open modal
-        const nameEl = bar.querySelector('.name-value');
-        if (nameEl) {
-            nameEl.addEventListener('click', () => {
-                this.openMemberModal(hunter);
-            });
-        }
+        // ❌ HAPUS: event listener langsung di sini (karena pakai delegation)
 
         // Animate entrance
         requestAnimationFrame(() => {
