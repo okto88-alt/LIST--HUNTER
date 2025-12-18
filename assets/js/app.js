@@ -14,7 +14,11 @@ class HunterDashboard {
         this.currentSort = 'id';
         this.currentSortDirection = 'asc';
         this.currentView = 'bar';
-        
+        this.levelIcons = {
+            VIP: "👑",
+            PRO: "⚡",
+            NEWBIE: "🌱"
+                 };
         // DOM elements
         this.elements = {
             totalCount: document.getElementById('total-count'),
@@ -358,7 +362,13 @@ class HunterDashboard {
         bar.className = `hunter-bar ${hunter.status.toLowerCase() === 'inactive' ? 'inactive' : ''}`;
         bar.style.opacity = '0';
         bar.style.transform = 'translateX(-20px)';
-        
+
+const icon = this.levelIcons[hunter.level] || "";
+
+const levelBadge = hunter.level
+  ? `<span class="level-badge ${hunter.level.toLowerCase()}">${icon} ${hunter.level}</span>`
+  : "";
+
         const statusClass = hunter.status.toLowerCase() === 'active' ? 'status-active' : 'status-inactive';
         const formattedDate = this.formatDate(hunter.join_date);
         const memberSince = this.getMemberSince(hunter.join_date);
@@ -373,7 +383,10 @@ class HunterDashboard {
             <!-- Name Section -->
             <div class="hunter-section name-section">
                 <div class="section-label">Name</div>
-                <div class="name-value">${this.escapeHtml(hunter.name)}</div>
+            <div class="name-value">
+              ${this.escapeHtml(hunter.name)}
+              ${levelBadge}
+            </div>
             </div>
             
             <!-- Category Section -->
