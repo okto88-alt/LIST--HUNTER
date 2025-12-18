@@ -4,7 +4,7 @@
     "name": "Reno ade putra",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-01-10"
+    "join_date": "2025-01-10",
     "level": "VIP"
     },
   {
@@ -12,7 +12,7 @@
     "name": "Deasy Fathira",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-06-25"
+    "join_date": "2025-06-25",
     "level": "VIP"
   },
     {
@@ -20,7 +20,7 @@
     "name": "Wawan Sani Rezky",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-06-25"
+    "join_date": "2025-06-25",
       "level": "PRO"
   },
     {
@@ -28,7 +28,7 @@
     "name": "Rizky Wulan Dari",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-06-25"
+    "join_date": "2025-06-25",
       "level": "NEWBIE"
   },
     {
@@ -36,7 +36,7 @@
     "name": "Said Ali Yusman",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-06-25"
+    "join_date": "2025-06-25",
       "level": "PRO"
   },
     {
@@ -44,7 +44,7 @@
     "name": "Said Zakaria",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-06-25"
+    "join_date": "2025-06-25",
       "level": "VIP"
   },
     {
@@ -52,7 +52,7 @@
     "name": "Robbi Juanda Seabank",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-12-17"
+    "join_date": "2025-12-17",
       "level": "VIP"
   },
     {
@@ -60,7 +60,7 @@
     "name": "Mita Wulandari",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-12-17"
+    "join_date": "2025-12-17",
       "level": "VIP"
   },
     {
@@ -68,7 +68,7 @@
     "name": "Fitri Yani A",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-12-17"
+    "join_date": "2025-12-17",
       "level": "NEWBIE"
   },
     {
@@ -76,7 +76,7 @@
     "name": "Muhammad ilham wiranataA",
     "group": "MIO88",
     "status": "Active",
-    "join_date": "2025-12-17"
+    "join_date": "2025-12-17",
       "level": "NEWBIE"
   }
 ]
