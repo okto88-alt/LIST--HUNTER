@@ -570,6 +570,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }, 250);
     });
+});
 
 // ✅ GLOBAL EVENT DELEGATION (FIX CLICK)
 document.addEventListener('click', (e) => {
