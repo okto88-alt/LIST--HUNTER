@@ -576,25 +576,25 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// ✅ GLOBAL EVENT DELEGATION (FIX CLICK)
+// ✅ GLOBAL EVENT DELEGATION — DETAIL BUTTON
 document.addEventListener('click', (e) => {
-  const nameValue = e.target.closest('.name-value');
-  if (!nameValue) return;
+  const detailBtn = e.target.closest('.detail-btn');
+  if (!detailBtn) return;
 
-  // ⛔ STOP semua efek samping
+  // ⛔ hentikan efek lain (hover bar, search, dll)
   e.preventDefault();
   e.stopPropagation();
 
-  const bar = nameValue.closest('.hunter-bar');
-  if (!bar) return;
+  const hunterId = detailBtn.dataset.hunterId;
+  if (!hunterId) return;
 
-  const hunterId = bar.dataset.hunterId;
   const dashboard = window.hunterDashboard;
   if (!dashboard) return;
 
   const hunter = dashboard.hunters.find(h => h.id === hunterId);
   if (!hunter) return;
 
+  console.log('DETAIL CLICK:', hunterId); // debug aman
   dashboard.openMemberModal(hunter);
 });
 
