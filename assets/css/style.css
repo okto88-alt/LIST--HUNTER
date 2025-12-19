@@ -900,6 +900,11 @@ body.modal-open {
     display: flex;
     gap: var(--spacing-sm);
 }
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
 
 .sort-btn {
     display: flex;
@@ -1501,10 +1506,14 @@ body.modal-open {
 }
 
 .dashboard-title {
-  color: var(--text-primary);
-  font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.4;
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease infinite;
+}
+
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .dashboard-badge {
