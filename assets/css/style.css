@@ -527,16 +527,7 @@ body::before {
 }
 
 .hunter-bar::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    width: 4px;
-    background: var(--accent-gradient);
-    transform: scaleY(0);
-    transition: transform var(--transition-normal);
-    transform-origin: bottom;
+    pointer-events: none;
 }
 
 .hunter-bar:hover {
@@ -684,16 +675,7 @@ body::before {
 
 /* Subtle divider between sections */
 .hunter-bar::after {
-    content: '';
-    position: absolute;
-    right: var(--spacing-lg);
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 40px;
-    background: var(--border-subtle);
-    opacity: 0;
-    transition: opacity var(--transition-normal);
+    pointer-events: none;
 }
 
 .hunter-bar:hover::after {
@@ -1469,5 +1451,11 @@ select:focus {
 }
 /* Ensure modal elements are clickable */
 #member-modal .modal-close {
+    cursor: pointer;
+}
+.name-value {
+    position: relative;
+    z-index: 10;
+    pointer-events: auto;
     cursor: pointer;
 }
