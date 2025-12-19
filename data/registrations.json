@@ -1,0 +1,159 @@
+{
+  "O01": [
+    "ID8891", "ID8892", "ID8893", "ID8894", "ID8895",
+    "ID8896", "ID8897", "ID8898", "ID8899", "ID8900",
+    "ID8901", "ID8902", "ID8903", "ID8904", "ID8905",
+    "ID8906", "ID8907", "ID8908", "ID8909", "ID8910",
+    "ID8911", "ID8912", "ID8913", "ID8914", "ID8915"
+  ],
+  "O02": [
+    "ID7721", "ID7722", "ID7723", "ID7724", "ID7725",
+    "ID7726", "ID7727", "ID7728", "ID7729", "ID7730"
+  ],
+  "O03": [
+    "ID5634", "ID5635", "ID5636", "ID5637", "ID5638",
+    "ID5639", "ID5640", "ID5641", "ID5642", "ID5643",
+    "ID5644", "ID5645"
+  ],
+  "O04": [
+    "ID3421", "ID3422", "ID3423", "ID3424", "ID3425", "ID3426"
+  ],
+  "O05": [
+    "ID7788", "ID7789", "ID7790", "ID7791", "ID7792",
+    "ID7793", "ID7794", "ID7795", "ID7796", "ID7797",
+    "ID7798", "ID7799"
+  ],
+  "O06": [
+    "ID9912", "ID9913", "ID9914", "ID9915", "ID9916",
+    "ID9917", "ID9918", "ID9919", "ID9920", "ID9921",
+    "ID9922", "ID9923", "ID9924", "ID9925", "ID9926",
+    "ID9927", "ID9928", "ID9929", "ID9930", "ID9931",
+    "ID9932", "ID9933"
+  ],
+  "O07": [
+    "ID2234", "ID2235", "ID2236", "ID2237", "ID2238", "ID2239",
+    "ID2240", "ID2241", "ID2242", "ID2243", "ID2244", "ID2245",
+    "ID2246", "ID2247", "ID2248", "ID2249", "ID2250"
+  ],
+  "O08": [
+    "ID6677", "ID6678", "ID6679", "ID6680", "ID6681",
+    "ID6682", "ID6683", "ID6684", "ID6685", "ID6686",
+    "ID6687", "ID6688", "ID6689", "ID6690", "ID6691",
+    "ID6692", "ID6693", "ID6694", "ID6695", "ID6696"
+  ],
+  "O09": [
+    "ID4455", "ID4456", "ID4457", "ID4458", "ID4459", "ID4460"
+  ],
+  "O10": [
+    "ID8899", "ID8900", "ID8901", "ID8902", "ID8903", "ID8904"
+  ],
+  "O11": [
+    "ID1122", "ID1123", "ID1124", "ID1125", "ID1126", "ID1127",
+    "ID1128", "ID1129", "ID1130", "ID1131", "ID1132", "ID1133",
+    "ID1134", "ID1135", "ID1136", "ID1137", "ID1138", "ID1139",
+    "ID1140", "ID1141", "ID1142", "ID1143", "ID1144", "ID1145",
+    "ID1146", "ID1147"
+  ],
+  "O12": [
+    "ID3344", "ID3345"
+  ],
+  "O13": [
+    "ID5566", "ID5567", "ID5568", "ID5569", "ID5570"
+  ],
+  "O14": [
+    "ID7789", "ID7790", "ID7791", "ID7792", "ID7793", "ID7794",
+    "ID7795", "ID7796", "ID7797", "ID7798", "ID7799", "ID7800",
+    "ID7801", "ID7802", "ID7803", "ID7804", "ID7805", "ID7806",
+    "ID7807", "ID7808", "ID7809", "ID7810", "ID7811", "ID7812"
+  ],
+  "O15": [
+    "ID3345", "ID3346", "ID3347", "ID3348", "ID3349", "ID3350",
+    "ID3351", "ID3352", "ID3353", "ID3354", "ID3355", "ID3356",
+    "ID3357", "ID3358", "ID3359", "ID3360", "ID3361", "ID3362",
+    "ID3363", "ID3364", "ID3365", "ID3366", "ID3367", "ID3368",
+    "ID3369", "ID3370"
+  ],
+  "O16": [
+    "ID7788", "ID7789", "ID7790", "ID7791", "ID7792", "ID7793",
+    "ID7794", "ID7795", "ID7796", "ID7797", "ID7798", "ID7799",
+    "ID7800", "ID7801", "ID7802", "ID7803", "ID7804", "ID7805",
+    "ID7806", "ID7807", "ID7808", "ID7809", "ID7810"
+  ],
+  "O17": [
+    "ID6677", "ID6678", "ID6679", "ID6680", "ID6681", "ID6682",
+    "ID6683", "ID6684", "ID6685", "ID6686", "ID6687", "ID6688",
+    "ID6689", "ID6690", "ID6691", "ID6692", "ID6693", "ID6694",
+    "ID6695", "ID6696", "ID6697", "ID6698", "ID6699", "ID6700",
+    "ID6701", "ID6702", "ID6703"
+  ],
+  "O18": [
+    "ID4455", "ID4456", "ID4457", "ID4458", "ID4459", "ID4460",
+    "ID4461", "ID4462", "ID4463", "ID4464", "ID4465", "ID4466",
+    "ID4467", "ID4468", "ID4469", "ID4470", "ID4471", "ID4472",
+    "ID4473", "ID4474", "ID4475"
+  ],
+  "O19": [
+    "ID1123", "ID1124", "ID1125", "ID1126", "ID1127", "ID1128",
+    "ID1129", "ID1130", "ID1131", "ID1132", "ID1133", "ID1134"
+  ],
+  "O20": [
+    "ID2235", "ID2236", "ID2237", "ID2238", "ID2239", "ID2240",
+    "ID2241", "ID2242", "ID2243", "ID2244", "ID2245", "ID2246"
+  ],
+  "O21": [
+    "ID8899", "ID8900", "ID8901", "ID8902", "ID8903", "ID8904",
+    "ID8905", "ID8906", "ID8907", "ID8908", "ID8909", "ID8910",
+    "ID8911", "ID8912", "ID8913", "ID8914", "ID8915", "ID8916",
+    "ID8917", "ID8918", "ID8919", "ID8920", "ID8921", "ID8922",
+    "ID8923"
+  ],
+  "M01": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu",
+    "Kerasakiyabos", "Jualpinang", "Buskgayamu", "Tebasan", "Muncarratan",
+    "Bjakansaja", "Jaranbaharu", "Tabeahbah", "Pecikang", "Muntahkanah",
+    "Kesungapihang", "Kulupjando", "Satesugeng", "Kerasakibos", "Jemputbola",
+    "Semprulnya", "Tebasannya", "Kerasakinyah", "Jualpinangnya", "Buskgayamunya"
+  ],
+  "M02": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu",
+    "Kerasakiyabos", "Jualpinang", "Buskgayamu", "Tebasan", "Muncarratan"
+  ],
+  "M03": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu",
+    "Kerasakiyabos", "Jualpinang", "Buskgayamu", "Tebasan", "Muncarratan",
+    "Bjakansaja", "Jaranbaharu"
+  ],
+  "M04": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu", "Kerasakiyabos"
+  ],
+  "M05": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu",
+    "Kerasakiyabos", "Jualpinang", "Buskgayamu", "Tebasan", "Muncarratan",
+    "Bjakansaja", "Jaranbaharu"
+  ],
+  "M06": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu",
+    "Kerasakiyabos", "Jualpinang", "Buskgayamu", "Tebasan", "Muncarratan",
+    "Bjakansaja", "Jaranbaharu", "Tabeahbah", "Pecikang", "Muntahkanah",
+    "Kesungapihang", "Kulupjando", "Satesugeng", "Kerasakibos", "Jemputbola",
+    "Semprulnya", "Tebasannya"
+  ],
+  "M07": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu",
+    "Kerasakiyabos", "Jualpinang", "Buskgayamu", "Tebasan", "Muncarratan",
+    "Bjakansaja", "Jaranbaharu", "Tabeahbah", "Pecikang", "Muntahkanah",
+    "Kesungapihang", "Kulupjando"
+  ],
+  "M08": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu",
+    "Kerasakiyabos", "Jualpinang", "Buskgayamu", "Tebasan", "Muncarratan",
+    "Bjakansaja", "Jaranbaharu", "Tabeahbah", "Pecikang", "Muntahkanah",
+    "Kesungapihang"
+  ],
+  "M09": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu", "Kerasakiyabos"
+  ],
+  "M10": [
+    "Semerawut", "Gamblingkan", "Konfirmasikan", "Tajogianu", "Setangkabulu", "Kerasakiyabos"
+  ]
+}
