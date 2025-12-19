@@ -246,18 +246,22 @@ async loadHunters() {
     /**
      * Render hunters based on current view
      */
-    renderHunters() {
-        if (this.filteredHunters.length === 0) {
-            this.showNoResults();
-            return;
-        }
-        this.hideNoResults();
-        if (this.currentView === 'bar') {
-            this.renderBarView();
-        } else {
-            this.renderTableView();
-        }
-    }
+renderHunters() {
+  // ✅ No Results hanya jika search aktif
+  if (this.filteredHunters.length === 0 && this.currentSearch.length > 0) {
+    this.showNoResults();
+    return;
+  }
+
+  // ✅ Selain itu, jangan ganggu UI
+  this.hideNoResults();
+
+  if (this.currentView === 'bar') {
+    this.renderBarView();
+  } else {
+    this.renderTableView();
+  }
+}
     
     /**
      * Render bar view
