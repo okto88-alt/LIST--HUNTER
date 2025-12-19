@@ -68,33 +68,33 @@ class HunterDashboard {
 async loadHunters() {
     try {
         const [okto, mio] = await Promise.all([
-            fetch('../../data/hunters-okto88.json').then(r => {
+            fetch('/LIST--HUNTER/data/hunters-okto88.json').then(r => {
                 if (!r.ok) throw new Error('Failed to load OKTO88 data');
                 return r.json();
             }),
-            fetch('../../data/hunters-mio88.json').then(r => {
+            fetch('/LIST--HUNTER/data/hunters-mio88.json').then(r => {
                 if (!r.ok) throw new Error('Failed to load MIO88 data');
                 return r.json();
             })
         ]);
 
-        const oktoWithGroup = okto.map(h => ({ ...h, group: 'OKTO88' }));
-        const mioWithGroup = mio.map(h => ({ ...h, group: 'MIO88' }));
+        this.hunters = [
+            ...okto.map(h => ({ ...h, group: 'OKTO88' })),
+            ...mio.map(h => ({ ...h, group: 'MIO88' }))
+        ];
 
-        this.hunters = [...oktoWithGroup, ...mioWithGroup];
         this.filteredHunters = [...this.hunters];
 
-        // Load registrations
-        const regRes = await fetch('../../data/registrations-mio88.json');
+        const regRes = await fetch('/LIST--HUNTER/data/registrations-mio88.json');
         if (regRes.ok) {
             this.registrations = await regRes.json();
         }
+
     } catch (error) {
         console.error('Error loading hunters', error);
         throw error;
     }
-}
-    
+}    
     /**
      * Setup event listeners
      */
