@@ -574,21 +574,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ✅ GLOBAL EVENT DELEGATION (FIX CLICK)
 document.addEventListener('click', (e) => {
-    const nameValue = e.target.closest('.name-value');
-    if (!nameValue) return;
+  const nameValue = e.target.closest('.name-value');
+  if (!nameValue) return;
 
-    const bar = nameValue.closest('.hunter-bar');
-    if (!bar) return;
+  // ⛔ STOP semua efek samping
+  e.preventDefault();
+  e.stopPropagation();
 
-    const hunterId = bar.dataset.hunterId;
-    const dashboard = window.hunterDashboard;
-    if (!dashboard) return;
+  const bar = nameValue.closest('.hunter-bar');
+  if (!bar) return;
 
-    const hunter = dashboard.hunters.find(h => h.id === hunterId);
-    if (!hunter) return;
+  const hunterId = bar.dataset.hunterId;
+  const dashboard = window.hunterDashboard;
+  if (!dashboard) return;
 
-    console.log('CLICK OK:', hunter.id); // debug
-    dashboard.openMemberModal(hunter);
+  const hunter = dashboard.hunters.find(h => h.id === hunterId);
+  if (!hunter) return;
+
+  dashboard.openMemberModal(hunter);
 });
 
 // Global error handling
