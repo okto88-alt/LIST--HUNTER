@@ -1,5 +1,6 @@
- * View-only dashboard for displaying team members
- */
+/* ========================================
+   HUNTER Members Dashboard
+   ======================================== */
 
 class HunterDashboard {
     constructor() {
