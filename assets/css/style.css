@@ -1498,16 +1498,25 @@ body.modal-open {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-.dashboard-header {
-  display: flex;
-  justify-content: between;
-  align-items: flex-start;
-  margin-bottom: 1rem;
+.page-title {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-extrabold);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+
+  background: var(--accent-gradient);
+  background-size: 200% 200%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  animation: gradientMove 6s ease infinite;
 }
 
-.dashboard-title {
-    background-size: 200% 200%;
-    animation: gradientMove 6s ease infinite;
+@keyframes gradientMove {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 @keyframes gradientMove {
