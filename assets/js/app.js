@@ -571,20 +571,23 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 250);
     });
 
-    // ✅ PASANG EVENT DELEGATION SETELAH DOM SIAP
-    if (window.hunterDashboard && window.hunterDashboard.elements.huntersGrid) {
-        window.hunterDashboard.elements.huntersGrid.addEventListener('click', (e) => {
-            const nameValue = e.target.closest('.name-value');
-            if (nameValue) {
-                const bar = nameValue.closest('.hunter-bar');
-                const hunterId = bar?.dataset.hunterId;
-                const hunter = window.hunterDashboard.hunters.find(h => h.id === hunterId);
-                if (hunter) {
-                    window.hunterDashboard.openMemberModal(hunter);
-                }
-            }
-        });
-    }
+// ✅ GLOBAL EVENT DELEGATION (FIX CLICK)
+document.addEventListener('click', (e) => {
+    const nameValue = e.target.closest('.name-value');
+    if (!nameValue) return;
+
+    const bar = nameValue.closest('.hunter-bar');
+    if (!bar) return;
+
+    const hunterId = bar.dataset.hunterId;
+    const dashboard = window.hunterDashboard;
+    if (!dashboard) return;
+
+    const hunter = dashboard.hunters.find(h => h.id === hunterId);
+    if (!hunter) return;
+
+    console.log('CLICK OK:', hunter.id); // debug
+    dashboard.openMemberModal(hunter);
 });
 
 // Global error handling
