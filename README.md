@@ -1,4 +1,4 @@
-# HUNTER Members Dashboard - PREMIUM
+# HUNTER Members  - Dashboard
 
 A premium, ultra-modern, secure, view-only dashboard for displaying HUNTER team members. This dashboard provides a sophisticated interface with advanced search, filtering, and premium animations.
 
