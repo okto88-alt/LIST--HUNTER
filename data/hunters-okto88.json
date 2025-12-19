@@ -190,5 +190,13 @@
     "status": "Active",
     "join_date": "2025-12-20",
      "level": "NEWBIE"
+  },
+  {
+    "id": "O25",
+    "name": "Fairuz Tsabit",
+    "group": "OKTO88",
+    "status": "Active",
+    "join_date": "2025-12-20",
+     "level": "VIP"
   }
 ]
