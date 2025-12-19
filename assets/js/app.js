@@ -1,8 +1,4 @@
-/**
- * HUNTER Members Dashboard - Premium JavaScript
  * View-only dashboard for displaying team members
- * Advanced search, filtering, premium animations, and member ID modal
- * Author: MiniMax Agent
  */
 
 class HunterDashboard {
